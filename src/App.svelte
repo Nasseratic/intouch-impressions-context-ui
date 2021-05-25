@@ -4,10 +4,8 @@
   const baseUrl = "https://intouch-analytics.azurewebsites.net";
 
   const startDate = new Date();
-  startDate.setHours(0, 0, 0, 0);
 
   const endDate = new Date();
-  endDate.setHours(23, 59, 59, 999);
 
   let dateRange = {
     startDate,
@@ -17,19 +15,21 @@
   let placeId;
   let assetId;
 
-  $: url = `${baseUrl}/impressions/impressionContext?startDate=${dateRange.startDate.toISOString()}&endDate=${dateRange.endDate.toISOString()}${
-    placeId ? `&placeId=${placeId}` : ""
-  }${assetId ? `&assetId=${assetId}` : ""}`;
+  $: url = `${baseUrl}/impressions/impressionContext?startDate=${
+    dateRange.startDate.toISOString().substring(0, 10) + "T00:00:00.000Z"
+  }&endDate=${
+    dateRange.endDate.toISOString().substring(0, 10) + "T23:59:59.999Z"
+  }${placeId ? `&placeId=${placeId}` : ""}${
+    assetId ? `&assetId=${assetId}` : ""
+  }`;
 
-  $: console.log(`the count is ${url}`);
+  $: console.log(`url: ${url}`);
 
   const onDateChangeStartDate = (d) => {
-    d.detail.setHours(0, 0, 0, 0);
     dateRange = { ...dateRange, startDate: d.detail };
   };
 
   const onDateChangeEndDate = (d) => {
-    d.detail.setHours(23, 59, 59, 999);
     dateRange = { ...dateRange, endDate: d.detail };
   };
 </script>
@@ -48,10 +48,10 @@
 </div>
 
 <div>
-  <input bind:value={placeId} type="number" placeholder="Place ID" />
+  <input bind:value={placeId} min={1} type="number" placeholder="Place ID" />
 </div>
 <div>
-  <input bind:value={assetId} type="number" placeholder="Asset ID" />
+  <input bind:value={assetId} min={1} type="number" placeholder="Asset ID" />
 </div>
 
 <h3>
