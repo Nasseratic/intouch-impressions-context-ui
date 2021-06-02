@@ -14,16 +14,36 @@
 
   let placeId;
   let assetId;
+  let startDateStr = "";
+  let endDateStr = "";
+  let url = "";
 
-  $: url = `${baseUrl}/impressions/impressionContext?startDate=${
-    dateRange.startDate.toISOString().substring(0, 10) + "T00:00:00.000Z"
-  }&endDate=${
-    dateRange.endDate.toISOString().substring(0, 10) + "T23:59:59.999Z"
-  }${placeId ? `&placeId=${placeId}` : ""}${
-    assetId ? `&assetId=${assetId}` : ""
-  }`;
+  $: {
+    let month = "" + (dateRange.startDate.getMonth() + 1),
+      day = "" + dateRange.startDate.getDate(),
+      year = dateRange.startDate.getFullYear();
 
-  $: console.log(`url: ${url}`);
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    startDateStr = [year, month, day].join("-");
+
+    month = "" + (dateRange.endDate.getMonth() + 1);
+    day = "" + dateRange.endDate.getDate();
+    year = dateRange.endDate.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    endDateStr = [year, month, day].join("-");
+
+    url = `${baseUrl}/impressions/impressionContext?startDate=${
+      startDateStr + "T00:00:00.000Z"
+    }&endDate=${endDateStr + "T23:59:59.999Z"}${
+      placeId ? `&placeId=${placeId}` : ""
+    }${assetId ? `&assetId=${assetId}` : ""}`;
+    console.log(url);
+  }
 
   const onDateChangeStartDate = (d) => {
     dateRange = { ...dateRange, startDate: d.detail };
