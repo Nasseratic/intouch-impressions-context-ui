@@ -1,7 +1,10 @@
 <script>
   import DatePicker from "./DatePicker.svelte";
-
-  const baseUrl = "https://intouch-analytics.azurewebsites.net";
+  let env = "prod";
+  const baseUrl = {
+    prod: "https://intouch-analytics.azurewebsites.net",
+    stg: "https://stg-intouch-analytics.azurewebsites.net",
+  };
 
   const startDate = new Date();
 
@@ -37,7 +40,7 @@
 
     endDateStr = [year, month, day].join("-");
 
-    url = `${baseUrl}/impressions/impressionContext?startDate=${
+    url = `${baseUrl[env]}/impressions/impressionContext?startDate=${
       startDateStr + "T00:00:00.000Z"
     }&endDate=${endDateStr + "T23:59:59.999Z"}${
       placeId ? `&placeId=${placeId}` : ""
@@ -55,7 +58,12 @@
 </script>
 
 <h1>Impressions Report</h1>
-
+<div>
+  <select bind:value={env}>
+    <option value="prod">Production</option>
+    <option value="stg">Staging</option>
+  </select>
+</div>
 <div class="picker-container">
   <DatePicker
     on:datechange={onDateChangeStartDate}
