@@ -40,7 +40,7 @@
 
     endDateStr = [year, month, day].join("-");
 
-    url = `${baseUrl[env]}/impressions/impressionContext?startDate=${
+    url = `${baseUrl[env]}/impressionContext?startDate=${
       startDateStr + "T00:00:00.000Z"
     }&endDate=${endDateStr + "T23:59:59.999Z"}${
       placeId ? `&placeId=${placeId}` : ""
