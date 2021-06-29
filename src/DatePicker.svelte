@@ -58,20 +58,27 @@
 
 <div class="relative">
   <input
+    class="z-0 shadow appearance-none border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
     type="text"
     on:focus={onFocus}
     on:blur={onBlur}
     value={selected.toDateString()}
   />
   {#if showDatePicker}
-    <div class="box">
+    <div class="box z-10">
       <div class="month-name">
         <div class="center">
-          <button on:click={prev}>Prev</button>
+          <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded"
+            on:click={prev}>Prev</button
+          >
         </div>
         <div class="center">{getMonthName(month)} {year}</div>
         <div class="center">
-          <button on:click={next}>Next</button>
+          <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded"
+            on:click={next}>Next</button
+          >
         </div>
       </div>
       <Calender
