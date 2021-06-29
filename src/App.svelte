@@ -64,7 +64,7 @@
     authed = true;
     localStorage.setItem("key", value);
   };
-  $: placeAssetsData = authed ? getPlacesAssets(key) : null;
+  $: placeAssetsData = authed ? getPlacesAssets(env, key) : null;
 </script>
 
 <div class="flex h-screen bg-gray-300">
