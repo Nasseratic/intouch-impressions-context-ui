@@ -6,7 +6,7 @@ const url = {
 export const getPlacesAssets = async (env,key) => {
   const Authorization =  `Basic ${btoa(key)}`;
   return await (await fetch(url[env],{headers:{
-    "Ocp-Apim-Subscription-Key":"b21661c1e9f14136aff76eb2fec8580e",
+    "Ocp-Apim-Subscription-Key": process.env.sk,
     Authorization
   }})).json()
 }
