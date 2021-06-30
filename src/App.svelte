@@ -116,6 +116,7 @@
               placeholder="Place ID"
               id="placeId"
             >
+              <option value="">All</option>
               {#each Object.keys(data) as placeId, i}
                 <option>{placeId}</option>
               {/each}
