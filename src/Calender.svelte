@@ -31,11 +31,11 @@
 </script>
 
 <div class="containerr">
-  <div class="roww">
+  <!-- <div class="roww">
     {#each weekdays as day}
       <div class="cell">{day}</div>
     {/each}
-  </div>
+  </div> -->
 
   <div class="roww">
     {#each cells as { allowed, value } (uuid())}
