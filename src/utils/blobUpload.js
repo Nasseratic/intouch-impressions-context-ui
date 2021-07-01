@@ -11,7 +11,7 @@ export const uploadToBlob = async ({
 }) => {
   try {
     const blobServiceClient = new BlockBlobClient(
-      `https://prod00intouch.blob.core.windows.net/pos-data/${startDate
+      `https://prod00intouch.blob.core.windows.net/pos-data/${store}/${startDate
         .toLocaleDateString()
         .replace(/\//g, "-")}_${endDate
         .toLocaleDateString()
