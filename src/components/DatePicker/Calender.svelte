@@ -1,5 +1,5 @@
 <script>
-  import { getDateRows, uuid, noop } from "./date-time.js";
+  import { getDateRows, uuid, noop } from "../../utils/date-time.js";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -70,16 +70,15 @@
 
   .cell {
     display: inline-block;
-    width: 40px;
+    width: 55px;
     height: 25px;
     text-align: center;
-    padding: 5px;
+    padding: 1px;
     margin: 1px;
   }
 
   .selected {
     background: #84e791;
-    height: 30px;
   }
 
   .highlight {
@@ -96,12 +95,10 @@
     background: rgb(238, 176, 60);
     color: #fff;
     cursor: pointer;
-    transform: scale(0.9);
-    height: 30px;
+    transform: scale(1.3);
   }
 
   .selected.highlight:hover {
     background: green;
-    height: 30px;
   }
 </style>

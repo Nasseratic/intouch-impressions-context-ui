@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Calender from "./Calender.svelte";
-  import { getMonthName } from "./date-time.js";
+  import { getMonthName } from "../../utils/date-time";
 
   const dispatch = createEventDispatcher();
 
@@ -58,7 +58,7 @@
 
 <div class="relative">
   <input
-    class="z-0 shadow appearance-none border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    class="z-0 shadow appearance-none w-80 border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
     type="text"
     on:focus={onFocus}
     on:blur={onBlur}
