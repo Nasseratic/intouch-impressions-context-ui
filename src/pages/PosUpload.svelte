@@ -1,7 +1,7 @@
 <script>
   import DatePicker from "../components/DatePicker/DatePicker.svelte";
   import Spinner from "../components/Spinner.svelte";
-  import { getPlacesAssets } from "../placesAssetsApi";
+  import { getPlacesAssets } from "../utils/placesAssetsApi";
   import { user } from "../store";
   import { uploadToBlob } from "../utils/blobUpload";
 
