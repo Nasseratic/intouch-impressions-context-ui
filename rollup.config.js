@@ -10,6 +10,7 @@ require("dotenv").config();
 
 const production = !process.env.ROLLUP_WATCH;
 const sk = process.env.sk;
+const sks = process.env.sks;
 
 function serve() {
   let server;
@@ -85,6 +86,7 @@ export default {
       process: JSON.stringify({
         env: {
           sk,
+          sks,
         },
       }),
     }),
