@@ -1,6 +1,6 @@
 const url = {
   prod: "https://intouchapis.azure-api.net/api/analytics/place-assets",
-  stg: "https://stg-intouchapis.azure-api.net/api/analytics/place-assets",
+  stg: "https://stg-intouchapis.azure-api.net/api/4n4lytics/place-assets",
 };
 
 const skMap = {
