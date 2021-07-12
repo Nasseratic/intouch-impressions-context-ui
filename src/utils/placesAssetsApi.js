@@ -1,11 +1,11 @@
 const url = {
-  prod: "https://intouchapis.azure-api.net/api/analytics/place-assets",
-  stg: "https://stg-intouchapis.azure-api.net/api/4n4lytics/place-assets",
+  prod: process.env.PLACES_ASSETS_URL,
+  stg: process.env.STG_PLACES_ASSETS_URL,
 };
 
 const skMap = {
-  prod: process.env.sk,
-  stg: process.env.sks,
+  prod: process.env.SUB_KEY,
+  stg: process.env.STG_SUB_KEY,
 };
 
 export const getPlacesAssets = async (env, user) => {

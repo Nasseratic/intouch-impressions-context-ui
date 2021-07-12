@@ -34,7 +34,7 @@
     if (month.length < 2) month = "0" + month;
     if (day.length < 2) day = "0" + day;
 
-    startDateStr = [year, month, day].join("-");
+    startDateStr = [year, month, day].join("-") + "T00:00:00.000Z";
 
     month = "" + (dateRange.endDate.getMonth() + 1);
     day = "" + dateRange.endDate.getDate();
@@ -43,11 +43,9 @@
     if (month.length < 2) month = "0" + month;
     if (day.length < 2) day = "0" + day;
 
-    endDateStr = [year, month, day].join("-");
+    endDateStr = [year, month, day].join("-") + "T23:59:59.999Z";
 
-    url = `${baseUrl[env]}/impressionContext?startDate=${
-      startDateStr + "T00:00:00.000Z"
-    }&endDate=${endDateStr + "T23:59:59.999Z"}${
+    url = `${baseUrl[env]}?startDate=${startDateStr}&endDate=${endDateStr}${
       placeId ? `&placeId=${placeId}` : ""
     }${assetId ? `&assetId=${assetId}` : ""}`;
     console.log(url);

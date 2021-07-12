@@ -9,8 +9,13 @@ import replace from "@rollup/plugin-replace";
 require("dotenv").config();
 
 const production = !process.env.ROLLUP_WATCH;
-const sk = process.env.sk;
-const sks = process.env.sks;
+
+const SUB_KEY = process.env.SUB_KEY;
+const STG_SUB_KEY = process.env.SUB_KEY;
+const PLACES_ASSETS_URL = process.env.PLACES_ASSETS_URL;
+const STG_PLACES_ASSETS_URL = process.env.STG_PLACES_ASSETS_URL;
+const IMPRESSIONS_REPORT_URL = process.env.IMPRESSIONS_REPORT_URL;
+const STG_IMPRESSIONS_REPORT_URL = process.env.STG_IMPRESSIONS_REPORT_URL;
 
 function serve() {
   let server;
@@ -85,8 +90,12 @@ export default {
       // 2 level deep object should be stringify
       process: JSON.stringify({
         env: {
-          sk,
-          sks,
+          IMPRESSIONS_REPORT_URL,
+          STG_IMPRESSIONS_REPORT_URL,
+          PLACES_ASSETS_URL,
+          STG_PLACES_ASSETS_URL,
+          SUB_KEY,
+          STG_SUB_KEY,
         },
       }),
     }),
