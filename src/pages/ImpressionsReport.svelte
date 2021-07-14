@@ -7,8 +7,8 @@
   let env = "prod";
 
   const baseUrl = {
-    prod: "https://intouch-analytics.azurewebsites.net",
-    stg: "https://stg-intouch-analytics.azurewebsites.net",
+    prod: process.env.IMPRESSIONS_REPORT_URL,
+    stg: process.env.IMPRESSIONS_REPORT_URL_STG,
   };
 
   const startDate = new Date();
