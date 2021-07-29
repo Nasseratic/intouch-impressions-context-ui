@@ -37,8 +37,10 @@
   };
 
   $: {
-    const start = moment(startDate).format("YYYY-MM-DD") + "T00:00:00.000Z";
-    const end = moment(endDate).format("YYYY-MM-DD") + "T23:59:59.999Z";
+    const start =
+      moment(dateRange.startDate).format("YYYY-MM-DD") + "T00:00:00.000Z";
+    const end =
+      moment(dateRange.endDate).format("YYYY-MM-DD") + "T23:59:59.999Z";
 
     url = `${baseUrl[env]}?startDate=${start}&endDate=${end}&withContext=${withContext}`;
     if (placeId) url = `${url}&placeId=${placeId}`;
